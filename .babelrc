@@ -1,0 +1,21 @@
+{
+  "presets": [
+    "es2015",
+    "stage-0",
+    "react"
+  ],
+  "plugins": [
+    "babel-plugin-add-module-exports",
+    "babel-plugin-transform-runtime"
+  ],
+  "env": {
+      "test": {
+        "presets": [
+            "es2015",
+            "stage-0",
+            "react"
+          ],
+        "plugins": [ "babel-plugin-istanbul" ]
+      }
+    }
+}

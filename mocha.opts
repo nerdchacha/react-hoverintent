@@ -1,0 +1,5 @@
+--compilers js:babel-register,css:test/tools/cssNullCompiler.js
+--recursive
+--require ./test/tools/setup.js
+--timeout 15000
+--slow 150
