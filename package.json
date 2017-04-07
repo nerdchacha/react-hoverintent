@@ -18,24 +18,21 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/nerdchacha/react-toggles"
+    "url": "git+https://github.com/nerdchacha/react-hoverintent"
   },
   "author": {
     "name": "Yatin Gera",
     "email": "yatin.gera5@gmail.com"
   },
   "bugs": {
-    "url": "https://github.com/nerdchacha/react-toggles/issues"
+    "url": "https://github.com/nerdchacha/react-hoverintent/issues"
   },
   "homepage": "https://nerdchacha.github.io/",
   "main": "index.js",
   "keywords": [
-    "toggle",
-    "react-toggle",
-    "button",
-    "toggle-button",
-    "react",
-    "react-component"
+    "hover",
+    "hover intent",
+    "delay"
   ],
   "license": "MIT",
   "precommit": {
