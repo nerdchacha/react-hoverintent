@@ -1,6 +1,6 @@
 {
   "name": "react-hoverintent",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "A simple react implementation over jquery-hoverintent",
   "scripts": {
     "lint": "eslint src",
@@ -27,7 +27,6 @@
   "bugs": {
     "url": "https://github.com/nerdchacha/react-hoverintent/issues"
   },
-  "homepage": "https://nerdchacha.github.io/",
   "main": "index.js",
   "keywords": [
     "hover",
