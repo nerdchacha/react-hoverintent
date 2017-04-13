@@ -129,7 +129,7 @@ var HoverIntent = function (_Component) {
 
       return _react2.default.createElement(
         'div',
-        { style: { display: 'inline', width: '100%', height: '100%' }, ref: function ref(element) {
+        { style: { display: 'inline-block', width: '100%', height: '100%' }, ref: function ref(element) {
             return _this5.element = element;
           } },
         this.props.children
