@@ -58,7 +58,7 @@ class HoverIntent extends Component {
   }
   render () {
     return (
-      <div style={{display: 'inline', width: '100%', height: '100%'}} ref={element => this.element = element}>
+      <div style={{display: 'inline-block', width: '100%', height: '100%'}} ref={element => this.element = element}>
         {this.props.children}
       </div>
     )
