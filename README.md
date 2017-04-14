@@ -13,7 +13,7 @@ react-hoverintent is a react wrapper over jquery-hoverintent plugin.
 
 ## Demo
 
-The demo with live examples can be viewed [here](https://nerdchacha.github.io/).
+The demo with live examples can be viewed [here](https://vijayranghar.github.io/).
 
 
 ## Props
@@ -83,14 +83,15 @@ class App extends Component {
 https://github.com/nerdchacha/react-hoverintent
 
 
-## Dev
-you can clone the repo and start the dev mode using ```npm start``` command
-
 
 ## Authors
-**Yatin Gera** initial work and setup
+**Yatin Gera** 
 
-**Vijay Mohan Singh Ranghar** initial work and setup
+**Vijay Mohan Singh Ranghar**
+
+## Credits
+
+**[briancherne](https://github.com/briancherne/jquery-hoverIntent)** - initial work and setup
 
 
 ## Issue tracker
