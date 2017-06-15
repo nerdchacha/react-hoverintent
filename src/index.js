@@ -22,23 +22,6 @@ class App extends Component {
     let {mouseover} = this.state
     return (
       <div className='container'>
-        <p className='intro'>
-          react-hoverIntent attempts to determine the user's intent... like a crystal ball, only with mouse movement! It is similar to the hover method. However, instead of calling the handlerIn function immediately, hoverIntent waits until the user's mouse slows down enough before making the call.
-        </p>
-        <ul className='examples'>
-          <li id='first'>
-            Plain old hover
-            <span className='popup'>Hi there</span>
-          </li>
-          <li id='second'>
-            hoverintent
-            <span className='popup'>Hi there</span>
-          </li>
-          <li id='third'>
-            Custom settings
-            <span className='popup'>Hi there</span>
-          </li>
-        </ul>
         <HoverIntent
           onMouseOver={this.onMouseOver}
           onMouseOut={this.onMouseOut}

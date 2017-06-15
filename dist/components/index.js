@@ -127,13 +127,11 @@ var HoverIntent = function (_Component) {
     value: function render() {
       var _this5 = this;
 
-      return _react2.default.createElement(
-        'div',
-        { style: { display: 'inline-block', width: '100%', height: '100%' }, ref: function ref(element) {
-            return _this5.element = element;
-          } },
-        this.props.children
-      );
+      return _react2.default.cloneElement(this.props.children, {
+        ref: function ref(element) {
+          _this5.element = element;
+        }
+      });
     }
   }]);
   return HoverIntent;
