@@ -1,4 +1,5 @@
-import React, { Component, PropTypes } from 'react'
+import React, { Component } from 'react'
+import PropTypes from 'prop-types'
 import extend from 'xtend'
 
 class HoverIntent extends Component {
@@ -58,7 +59,7 @@ class HoverIntent extends Component {
   }
   render () {
     return React.cloneElement(this.props.children, {
-      ref: (element) => { this.element = element}
+      ref: (element) => { this.element = element },
     })
   }
 }
