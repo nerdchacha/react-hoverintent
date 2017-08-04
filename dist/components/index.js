@@ -32,6 +32,10 @@ var _xtend = require('xtend');
 
 var _xtend2 = _interopRequireDefault(_xtend);
 
+var _propTypes = require('prop-types');
+
+var _propTypes2 = _interopRequireDefault(_propTypes);
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 var HoverIntent = function (_Component) {
@@ -144,12 +148,12 @@ HoverIntent.defaultProps = {
 };
 
 HoverIntent.propTypes = {
-  sensitivity: _react.PropTypes.number,
-  interval: _react.PropTypes.number,
-  timeout: _react.PropTypes.number,
-  onMouseOver: _react.PropTypes.func,
-  onMouseOut: _react.PropTypes.func,
-  children: _react.PropTypes.node
+  sensitivity: _propTypes2.default.number,
+  interval: _propTypes2.default.number,
+  timeout: _propTypes2.default.number,
+  onMouseOver: _propTypes2.default.func,
+  onMouseOut: _propTypes2.default.func,
+  children: _propTypes2.default.node
 };
 
 exports.default = HoverIntent;

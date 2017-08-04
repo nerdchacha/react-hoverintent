@@ -1,5 +1,6 @@
-import React, { Component, PropTypes } from 'react'
+import React, { Component } from 'react'
 import extend from 'xtend'
+import PropTypes from 'prop-types'
 
 class HoverIntent extends Component {
   constructor () {
