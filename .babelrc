@@ -1,21 +1,26 @@
 {
   "presets": [
-    "es2015",
-    "stage-0",
-    "react"
+    [
+      "@babel/preset-env",
+      {
+        "targets": {
+          "browsers": [
+            "last 2 versions",
+            "ie 11"
+          ]
+        }
+      }
+    ],
+    "@babel/preset-react"
   ],
   "plugins": [
-    "babel-plugin-add-module-exports",
-    "babel-plugin-transform-runtime"
-  ],
-  "env": {
-      "test": {
-        "presets": [
-            "es2015",
-            "stage-0",
-            "react"
-          ],
-        "plugins": [ "babel-plugin-istanbul" ]
+    "istanbul",
+    "@babel/plugin-proposal-class-properties",
+    [
+      "@babel/plugin-transform-runtime",
+      {
+        "corejs": 2
       }
-    }
+    ]
+  ]
 }
