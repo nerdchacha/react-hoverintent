@@ -45,8 +45,7 @@
   "dependencies": {
     "prop-types": "^15.5.10",
     "react": "^15.4.1",
-    "react-dom": "^15.4.1",
-    "xtend": "^4.0.1"
+    "react-dom": "^15.4.1"
   },
   "devDependencies": {
     "autoprefixer-loader": "^3.2.0",

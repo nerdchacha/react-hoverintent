@@ -28,10 +28,6 @@ var _react = require('react');
 
 var _react2 = _interopRequireDefault(_react);
 
-var _xtend = require('xtend');
-
-var _xtend2 = _interopRequireDefault(_xtend);
-
 var _propTypes = require('prop-types');
 
 var _propTypes2 = _interopRequireDefault(_propTypes);
@@ -46,6 +42,62 @@ var HoverIntent = function (_Component) {
 
     var _this = (0, _possibleConstructorReturn3.default)(this, (HoverIntent.__proto__ || (0, _getPrototypeOf2.default)(HoverIntent)).call(this));
 
+    _this.delay = function (e) {
+      if (_this.timer) {
+        _this.timer = clearTimeout(_this.timer);
+      }
+      _this.status = 0;
+      return _this.props.onMouseOut.call(_this.element, e);
+    };
+
+    _this.tracker = function (e) {
+      _this.x = e.clientX;
+      _this.y = e.clientY;
+    };
+
+    _this.compare = function (e) {
+      if (_this.timer) {
+        _this.timer = clearTimeout(_this.timer);
+      }
+      if (Math.abs(_this.pX - _this.x) + Math.abs(_this.pY - _this.y) < _this.props.sensitivity) {
+        _this.status = 1;
+        return _this.props.onMouseOver.call(_this.element, e);
+      } else {
+        _this.pX = _this.x;
+        _this.pY = _this.y;
+        _this.timer = setTimeout(function () {
+          return _this.compare(e);
+        }, _this.props.interval);
+      }
+    };
+
+    _this.dispatchOver = function (e) {
+      if (_this.timer) {
+        _this.timer = clearTimeout(_this.timer);
+      }
+      _this.element.removeEventListener('mousemove', _this.tracker, false);
+      if (_this.status !== 1) {
+        _this.pX = e.clientX;
+        _this.pY = e.clientY;
+        _this.element.addEventListener('mousemove', _this.tracker, false);
+        _this.timer = setTimeout(function () {
+          return _this.compare(e);
+        }, _this.props.interval);
+      }
+    };
+
+    _this.dispatchOut = function (e) {
+      if (_this.timer) {
+        _this.timer = clearTimeout(_this.timer);
+      }
+      _this.element.removeEventListener('mousemove', _this.tracker, false);
+      if (_this.status === 1) {
+        _this.timer = setTimeout(function () {
+          return _this.delay(e);
+        }, _this.props.timeout);
+      }
+    };
+
     _this.x = 0;
     _this.y = 0;
     _this.pX = 0;
@@ -58,82 +110,23 @@ var HoverIntent = function (_Component) {
   (0, _createClass3.default)(HoverIntent, [{
     key: 'componentDidMount',
     value: function componentDidMount() {
-      this.element.addEventListener('mouseover', this.dispatchOver.bind(this), false);
-      this.element.addEventListener('mouseout', this.dispatchOut.bind(this), false);
+      this.element.addEventListener('mouseover', this.dispatchOver, false);
+      this.element.addEventListener('mouseout', this.dispatchOut, false);
     }
   }, {
     key: 'componentWillUnmount',
     value: function componentWillUnmount() {
-      this.element.removeEventListener('mouseover', this.dispatchOver.bind(this), false);
-      this.element.removeEventListener('mouseout', this.dispatchOut.bind(this), false);
-    }
-  }, {
-    key: 'delay',
-    value: function delay(e) {
-      if (this.timer) this.timer = clearTimeout(this.timer);
-      this.status = 0;
-      return this.props.onMouseOut.call(this.element, e);
-    }
-  }, {
-    key: 'tracker',
-    value: function tracker(e) {
-      this.x = e.clientX;
-      this.y = e.clientY;
-    }
-  }, {
-    key: 'compare',
-    value: function compare(e) {
-      var _this2 = this;
-
-      if (this.timer) this.timer = clearTimeout(this.timer);
-      if (Math.abs(this.pX - this.x) + Math.abs(this.pY - this.y) < this.props.sensitivity) {
-        this.status = 1;
-        return this.props.onMouseOver.call(this.element, e);
-      } else {
-        this.pX = this.x;
-        this.pY = this.y;
-        this.timer = setTimeout(function () {
-          return _this2.compare(_this2.element, e);
-        }, this.props.interval);
-      }
-    }
-  }, {
-    key: 'dispatchOver',
-    value: function dispatchOver(e) {
-      var _this3 = this;
-
-      if (this.timer) this.timer = clearTimeout(this.timer);
-      this.element.removeEventListener('mousemove', this.tracker.bind(this), false);
-      if (this.status !== 1) {
-        this.pX = e.clientX;
-        this.pY = e.clientY;
-        this.element.addEventListener('mousemove', this.tracker.bind(this), false);
-        this.timer = setTimeout(function () {
-          return _this3.compare(_this3.element, e);
-        }, this.props.interval);
-      }
-    }
-  }, {
-    key: 'dispatchOut',
-    value: function dispatchOut(e) {
-      var _this4 = this;
-
-      if (this.timer) this.timer = clearTimeout(this.timer);
-      this.element.removeEventListener('mousemove', this.tracker.bind(this), false);
-      if (this.status === 1) {
-        this.timer = setTimeout(function () {
-          return _this4.delay(_this4.element, e);
-        }, this.props.timeout);
-      }
+      this.element.removeEventListener('mouseover', this.dispatchOver, false);
+      this.element.removeEventListener('mouseout', this.dispatchOut, false);
     }
   }, {
     key: 'render',
     value: function render() {
-      var _this5 = this;
+      var _this2 = this;
 
       return _react2.default.cloneElement(this.props.children, {
         ref: function ref(element) {
-          _this5.element = element;
+          _this2.element = element;
         }
       });
     }

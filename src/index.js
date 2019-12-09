@@ -6,20 +6,18 @@ import HoverIntent from './components/index'
 require('./style.scss')
 
 class App extends Component {
-  constructor () {
+  constructor() {
     super()
     this.state = { mouseover: false }
-    this.onMouseOver = this.onMouseOver.bind(this)
-    this.onMouseOut = this.onMouseOut.bind(this)
   }
-  onMouseOver () {
-    this.setState({mouseover: true})
+  onMouseOver = () => {
+    this.setState({ mouseover: true })
   }
-  onMouseOut () {
-    this.setState({mouseover: false})
+  onMouseOut = () => {
+    this.setState({ mouseover: false })
   }
-  render () {
-    let {mouseover} = this.state
+  render() {
+    const { mouseover } = this.state
     return (
       <div className='container'>
         <HoverIntent
@@ -29,7 +27,7 @@ class App extends Component {
           <ul>
             <li>
               Hover
-              <span className={classnames('popover', {'open': mouseover})}>Hover</span>
+              <span className={classnames('popover', { 'open': mouseover })}>Hover</span>
             </li>
           </ul>
         </HoverIntent>
