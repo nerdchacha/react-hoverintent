@@ -88,7 +88,7 @@
     "eventsource-polyfill": "0.9.6",
     "expect": "1.19.0",
     "extract-text-webpack-plugin": "^1.0.1",
-    "jsdom": "8.5.0",
+    "jsdom": "16.5.0",
     "mocha": "2.4.5",
     "ncp": "^2.0.0",
     "node-sass": "^4.5.0",
